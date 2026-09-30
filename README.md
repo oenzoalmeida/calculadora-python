@@ -4,11 +4,13 @@ Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter.
 
 ## Funcionalidades
 
-- Soma
-- Subtração
-- Multiplicação
-- Divisão
+- Soma, subtração, multiplicação e divisão
 - Tratamento de divisão por zero
+- Porcentagem e alternância de sinal (±)
+- Apagar último dígito (⌫) e limpar tudo (C)
+- Suporte a teclado (números, operadores, Enter, Backspace e Esc)
+- Histórico da última operação
+- Vírgula como separador decimal
 
 ## Tecnologias utilizadas
 
@@ -41,6 +43,8 @@ python main.py
 calculadora-python/
 ├── calculadora.py
 ├── main.py
+├── pyproject.toml
+├── uv.lock
 ├── README.md
 └── .gitignore
 ```
