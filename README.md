@@ -4,7 +4,7 @@ Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter.
 
 ## Contexto
 
-Projeto dos meus primeiros períodos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, construído somente com a biblioteca padrão do Python.
+Projeto dos meus primeiros períodos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, tudo construído com a biblioteca padrão do Python.
 
 ## Funcionalidades
 
