@@ -1,57 +1,86 @@
-# Calculadora em Python
+# Calculadora em Python (e na web)
 
-Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter.
+Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter — e, desde 2026, também uma versão web publicada, construída sobre a mesma lógica.
 
 ## Contexto
 
-Projeto dos meus primeiros períodos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, tudo construído com a biblioteca padrão do Python.
+Este foi um dos meus primeiros projetos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, tudo construído com a biblioteca padrão do Python. A versão web foi criada depois, como exercício de port da lógica original para o navegador, sem apagar a versão acadêmica.
 
-## Funcionalidades
+## Evolução: original → web
+
+| | Original (Tkinter) | Web |
+|---|---|---|
+| Interface | Tkinter (desktop) | HTML/CSS/JS puros, responsiva |
+| Lógica | `calculadora.py` | `web/calculator.js` (mesma máquina de estados) |
+| Histórico | última operação | lista com até 20 cálculos |
+| Memória | — | M+, M−, MR, MC |
+| Testes | manuais | 36 testes automatizados (`node --test`) |
+| Demo | `python main.py` | https://oenzoa-calculadora.web.app |
+
+A versão web preserva a semântica do original: avaliação encadeada ao trocar operador, divisão por zero como erro explícito, vírgula como separador decimal e o mesmo mapa de teclas.
+
+## Funcionalidades (web)
 
 - Soma, subtração, multiplicação e divisão
-- Tratamento de divisão por zero
+- Tratamento de divisão por zero e entradas inválidas
 - Porcentagem e alternância de sinal (±)
 - Apagar último dígito (⌫) e limpar tudo (C)
-- Suporte a teclado (números, operadores, Enter, Backspace e Esc)
-- Histórico da última operação
+- Memória: M+, M−, MR e MC
+- Histórico dos últimos cálculos
+- Suporte a teclado (números, operadores, Enter, Backspace, Esc e %)
 - Vírgula como separador decimal
 
 ## Tecnologias utilizadas
 
-- Python 3
-- Tkinter
+- **Original:** Python 3, Tkinter
+- **Web:** HTML, CSS e JavaScript puros (sem frameworks), testes com `node:test`, hospedagem no Firebase Hosting
 
 ## Como executar
 
-1. Clone este repositório:
+### Versão desktop (Python)
 
 ```bash
 git clone https://github.com/oenzoalmeida/calculadora-python.git
-```
-
-2. Entre na pasta do projeto:
-
-```bash
 cd calculadora-python
+python main.py
 ```
 
-3. Execute:
+### Versão web
 
 ```bash
-python main.py
+# sirva a pasta web/ com qualquer servidor estático, por exemplo:
+python -m http.server 8000 --directory web
+# abra http://localhost:8000
 ```
 
 ## Estrutura do projeto
 
 ```
 calculadora-python/
-├── calculadora.py
-├── main.py
+├── calculadora.py          # lógica da versão original (preservada)
+├── main.py                 # interface Tkinter da versão original (preservada)
+├── web/                    # versão web
+│   ├── index.html
+│   ├── style.css
+│   ├── app.js              # interface
+│   └── calculator.js       # motor de cálculo (port da lógica)
+├── tests/
+│   └── calculator.test.mjs # testes do motor
+├── firebase.json           # Firebase Hosting
+├── .github/workflows/      # CI (Python + web) e deploy
 ├── pyproject.toml
 ├── uv.lock
 ├── README.md
 └── .gitignore
 ```
+
+## Testes
+
+```bash
+node --test tests/calculator.test.mjs
+```
+
+Cobrem operações básicas, porcentagem, casas decimais, divisão por zero, limpeza, memória e histórico.
 
 ## Autor
 

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora — Enzo Almeida</title>
+  <meta name="description" content="Calculadora web: versão moderna do meu projeto acadêmico em Python/Tkinter.">
+  <meta name="theme-color" content="#141416">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141416'/%3E%3Crect x='6' y='6' width='20' height='6' rx='2' fill='%23e8863a'/%3E%3Ccircle cx='10' cy='18' r='2' fill='%23fff'/%3E%3Ccircle cx='16' cy='18' r='2' fill='%23fff'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%23e8863a'/%3E%3Ccircle cx='10' cy='24' r='2' fill='%23fff'/%3E%3Ccircle cx='16' cy='24' r='2' fill='%23fff'/%3E%3Ccircle cx='22' cy='24' r='2' fill='%23e8863a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="calc" aria-label="Calculadora">
+      <header class="calc-head">
+        <h1>Calculadora</h1>
+        <span class="badge" id="memoria-badge" hidden>M</span>
+      </header>
+
+      <output class="display" aria-live="polite">
+        <span class="expressao" id="expressao">&nbsp;</span>
+        <span class="resultado" id="resultado">0</span>
+      </output>
+
+      <div class="grid" role="group" aria-label="Teclado da calculadora">
+        <button type="button" class="tecla funcao" data-acao="limpar" aria-label="Limpar tudo">C</button>
+        <button type="button" class="tecla funcao" data-acao="apagar" aria-label="Apagar último dígito">⌫</button>
+        <button type="button" class="tecla funcao" data-acao="porcentagem" aria-label="Porcentagem">%</button>
+        <button type="button" class="tecla operador" data-valor="÷" aria-label="Dividir">÷</button>
+
+        <button type="button" class="tecla" data-valor="7">7</button>
+        <button type="button" class="tecla" data-valor="8">8</button>
+        <button type="button" class="tecla" data-valor="9">9</button>
+        <button type="button" class="tecla operador" data-valor="×" aria-label="Multiplicar">×</button>
+
+        <button type="button" class="tecla" data-valor="4">4</button>
+        <button type="button" class="tecla" data-valor="5">5</button>
+        <button type="button" class="tecla" data-valor="6">6</button>
+        <button type="button" class="tecla operador" data-valor="−" aria-label="Subtrair">−</button>
+
+        <button type="button" class="tecla" data-valor="1">1</button>
+        <button type="button" class="tecla" data-valor="2">2</button>
+        <button type="button" class="tecla" data-valor="3">3</button>
+        <button type="button" class="tecla operador" data-valor="+" aria-label="Somar">+</button>
+
+        <button type="button" class="tecla" data-acao="sinal" aria-label="Alternar sinal">±</button>
+        <button type="button" class="tecla" data-valor="0">0</button>
+        <button type="button" class="tecla" data-acao="decimal" aria-label="Separador decimal">,</button>
+        <button type="button" class="tecla operador igual" data-acao="igual" aria-label="Calcular">=</button>
+
+        <button type="button" class="tecla memoria" data-acao="m-mais" aria-label="Memória mais">M+</button>
+        <button type="button" class="tecla memoria" data-acao="m-menos" aria-label="Memória menos">M−</button>
+        <button type="button" class="tecla memoria" data-acao="m-recuperar" aria-label="Recuperar memória">MR</button>
+        <button type="button" class="tecla memoria" data-acao="m-limpar" aria-label="Limpar memória">MC</button>
+      </div>
+
+      <p class="erro" id="erro" role="alert" hidden></p>
+    </section>
+
+    <aside class="painel" aria-label="Histórico de cálculos">
+      <div class="painel-head">
+        <h2>Histórico</h2>
+        <button type="button" class="link" id="limpar-historico" hidden>Limpar</button>
+      </div>
+      <ul class="historico" id="historico">
+        <li class="historico-vazio" id="historico-vazio">Nenhum cálculo ainda.</li>
+      </ul>
+      <footer class="painel-foot">
+        <p>Port da <strong>Calculadora em Python</strong>, projeto acadêmico em Tkinter.</p>
+        <a href="https://github.com/oenzoalmeida/calculadora-python" rel="noopener">ver código ↗</a>
+      </footer>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
