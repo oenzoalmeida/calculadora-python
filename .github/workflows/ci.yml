@@ -23,3 +23,13 @@ jobs:
         run: python -m compileall -q .
       - name: Import core module
         run: python -c "import calculadora"
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testes do motor de cálculo
+        run: node --test tests/calculator.test.mjs
