@@ -1,6 +1,6 @@
 # Calculadora em Python (e na web)
 
-Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter — e, desde 2026, também uma versão web publicada, construída sobre a mesma lógica.
+Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter. Desde 2026, o repositório também inclui uma versão web construída sobre a mesma lógica.
 
 ## Contexto
 
@@ -13,7 +13,7 @@ Este foi um dos meus primeiros projetos da faculdade de Ciência da Computação
 | Interface | Tkinter (desktop) | HTML/CSS/JS puros, responsiva |
 | Lógica | `calculadora.py` | `web/calculator.js` (mesma máquina de estados) |
 | Histórico | última operação | lista com até 20 cálculos |
-| Memória | — | M+, M−, MR, MC |
+| Memória | Não disponível | M+, M−, MR, MC |
 | Testes | manuais | 36 testes automatizados (`node --test`) |
 | Demo | `python main.py` | https://oenzoa-calculadora.web.app |
 
@@ -21,19 +21,20 @@ A versão web preserva a semântica do original: avaliação encadeada ao trocar
 
 ## Funcionalidades (web)
 
-- Soma, subtração, multiplicação e divisão
-- Tratamento de divisão por zero e entradas inválidas
-- Porcentagem e alternância de sinal (±)
-- Apagar último dígito (⌫) e limpar tudo (C)
-- Memória: M+, M−, MR e MC
-- Histórico dos últimos cálculos
-- Suporte a teclado (números, operadores, Enter, Backspace, Esc e %)
-- Vírgula como separador decimal
+- Soma, subtração, multiplicação e divisão.
+- Tratamento de divisão por zero e entradas inválidas.
+- Porcentagem e alternância de sinal (±).
+- Apagar último dígito (⌫) e limpar tudo (C).
+- Memória: M+, M−, MR e MC.
+- Histórico dos últimos cálculos.
+- Suporte a teclado (números, operadores, Enter, Backspace, Esc e %).
+- Vírgula como separador decimal.
 
 ## Tecnologias utilizadas
 
-- **Original:** Python 3, Tkinter
-- **Web:** HTML, CSS e JavaScript puros (sem frameworks), testes com `node:test`, hospedagem no Firebase Hosting
+**Original:** Python 3, Tkinter.
+
+**Web:** HTML, CSS e JavaScript puros (sem frameworks), testes com `node:test`, hospedagem no Firebase Hosting.
 
 ## Como executar
 
