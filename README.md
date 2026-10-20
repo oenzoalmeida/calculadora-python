@@ -19,6 +19,10 @@ Este foi um dos meus primeiros projetos da faculdade de Ciência da Computação
 
 A versão web preserva a semântica do original: avaliação encadeada ao trocar operador, divisão por zero como erro explícito, vírgula como separador decimal e o mesmo mapa de teclas.
 
+### Formatação dos resultados
+
+As interfaces mantêm seus formatos próprios, conforme decisão do responsável pelo produto. A versão Python apresenta até dez casas decimais. A versão web usa até doze dígitos significativos. Os zeros finais desnecessários são removidos, e a vírgula é usada como separador decimal. Por exemplo, `1 ÷ 3` aparece como `0,3333333333` no Python e `0,333333333333` na web. Essa diferença de apresentação é intencional e não exige igualdade textual entre as duas interfaces.
+
 ## Funcionalidades (web)
 
 - Soma, subtração, multiplicação e divisão.
