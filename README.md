@@ -66,6 +66,8 @@ calculadora-python/
 ├── main.py                 # interface Tkinter da versão original (preservada)
 ├── web/                    # versão web
 │   ├── index.html
+│   ├── 404.html            # página de erro (Firebase Hosting)
+│   ├── robots.txt
 │   ├── style.css
 │   ├── app.js              # interface
 │   └── calculator.js       # motor de cálculo (port da lógica)
