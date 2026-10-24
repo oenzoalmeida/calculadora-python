@@ -21,8 +21,8 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Compile Python files
         run: python -m compileall -q .
-      - name: Import core module
-        run: python -c "import calculadora"
+      - name: Testes do núcleo Python
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
 
   web:
     runs-on: ubuntu-latest

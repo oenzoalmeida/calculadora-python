@@ -243,3 +243,42 @@ test('parseDisplay aceita ponto e vírgula', () => {
 test('formatarNumero lida com -0', () => {
   assert.equal(formatarNumero(-0), '0');
 });
+
+// ---- tabela compartilhada com a versão Python ----
+// Os mesmos casos de tests/casos-aritmetica.json são exercitados pela suíte
+// Python (tests/test_calculadora.py). As duas implementações da mesma
+// aritmética não podem divergir em silêncio: um caso acrescentado ao arquivo
+// passa a valer para os dois lados.
+
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const AQUI = dirname(fileURLToPath(import.meta.url));
+const CASOS = JSON.parse(readFileSync(join(AQUI, 'casos-aritmetica.json'), 'utf8'));
+
+// A tabela usa os sinais de teclado; o motor usa os sinais tipográficos.
+const SINAL = { '+': '+', '-': '−', '*': '×', '/': '÷' };
+
+test('a tabela compartilhada tem casos', () => {
+  assert.ok(CASOS.operacoes.length > 10);
+});
+
+test('tabela compartilhada: operações', () => {
+  for (const caso of CASOS.operacoes) {
+    if (caso.erro) continue;
+    const obtido = calcular(caso.a, SINAL[caso.op], caso.b);
+    assert.equal(obtido, caso.esperado, `${caso.a} ${caso.op} ${caso.b}`);
+  }
+});
+
+test('tabela compartilhada: divisão por zero é recusada', () => {
+  for (const caso of CASOS.operacoes) {
+    if (caso.erro !== 'divisao-por-zero') continue;
+    assert.throws(
+      () => calcular(caso.a, SINAL['/'], caso.b),
+      DivisionByZeroError,
+      `${caso.a} / ${caso.b}`
+    );
+  }
+});
