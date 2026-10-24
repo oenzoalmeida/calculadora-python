@@ -1,0 +1,37 @@
+{
+  "_comentario": [
+    "Tabela de casos lida pelos dois lados do projeto: pela versão Python",
+    "(classe Calculadora, usada pelo app Tkinter) e pela versão web",
+    "(web/calculator.js). As duas implementam a mesma aritmética, e sem uma",
+    "fonte comum de casos elas podem divergir sem que nada acuse.",
+    "",
+    "Ao acrescentar um caso aqui, as duas suítes passam a exercitá-lo.",
+    "'erro' marca as entradas que devem ser recusadas; cada lado verifica o",
+    "erro na forma da sua linguagem (ValueError no Python,",
+    "DivisionByZeroError no JavaScript)."
+  ],
+  "operacoes": [
+    { "a": 2, "op": "+", "b": 3, "esperado": 5 },
+    { "a": -4, "op": "+", "b": 4, "esperado": 0 },
+    { "a": 0.1, "op": "+", "b": 0.2, "esperado": 0.30000000000000004 },
+    { "a": 1e15, "op": "+", "b": 1, "esperado": 1000000000000001 },
+
+    { "a": 10, "op": "-", "b": 3, "esperado": 7 },
+    { "a": 3, "op": "-", "b": 10, "esperado": -7 },
+    { "a": -5, "op": "-", "b": -5, "esperado": 0 },
+
+    { "a": 6, "op": "*", "b": 7, "esperado": 42 },
+    { "a": -3, "op": "*", "b": 4, "esperado": -12 },
+    { "a": 2.5, "op": "*", "b": 4, "esperado": 10 },
+    { "a": 0, "op": "*", "b": 12345, "esperado": 0 },
+
+    { "a": 10, "op": "/", "b": 4, "esperado": 2.5 },
+    { "a": 1, "op": "/", "b": 8, "esperado": 0.125 },
+    { "a": -9, "op": "/", "b": 3, "esperado": -3 },
+    { "a": 7, "op": "/", "b": 7, "esperado": 1 },
+
+    { "a": 1, "op": "/", "b": 0, "erro": "divisao-por-zero" },
+    { "a": 0, "op": "/", "b": 0, "erro": "divisao-por-zero" },
+    { "a": -5, "op": "/", "b": 0, "erro": "divisao-por-zero" }
+  ]
+}
