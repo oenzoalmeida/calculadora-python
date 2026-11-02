@@ -266,8 +266,11 @@ body {
 /* ---- responsivo ---- */
 
 @media (max-width: 720px) {
-  .shell { flex-direction: column-reverse; align-items: center; }
+  /* Calculadora em primeiro foco: o histórico fica abaixo do teclado e,
+     enquanto vazio, fica recolhido para não empurrar a ação principal. */
+  .shell { flex-direction: column; align-items: center; }
   .painel { max-width: 340px; }
+  .painel.vazio { display: none; }
   .historico { max-height: 180px; }
 }
 
