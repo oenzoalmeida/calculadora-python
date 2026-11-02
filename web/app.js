@@ -12,6 +12,7 @@ const el = {
   historico: document.getElementById('historico'),
   historicoVazio: document.getElementById('historico-vazio'),
   limparHistorico: document.getElementById('limpar-historico'),
+  painel: document.querySelector('.painel'),
   badgeMemoria: document.getElementById('memoria-badge'),
 };
 
@@ -31,6 +32,7 @@ function render() {
 
   el.historicoVazio.hidden = estado.historico.length > 0;
   el.limparHistorico.hidden = estado.historico.length === 0;
+  el.painel.classList.toggle('vazio', estado.historico.length === 0);
   el.historico.querySelectorAll('li:not(.historico-vazio)').forEach((li) => li.remove());
   for (const item of estado.historico) {
     const li = document.createElement('li');
