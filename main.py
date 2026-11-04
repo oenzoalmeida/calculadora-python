@@ -1,3 +1,4 @@
+import math
 import tkinter as tk
 from tkinter import messagebox
 
@@ -442,6 +443,8 @@ class CalculadoraApp:
 
     @staticmethod
     def formatar_numero(numero: float) -> str:
+        if not math.isfinite(numero):
+            raise ValueError('Resultado fora do intervalo numérico suportado.')
         if numero == int(numero):
             return str(int(numero))
 
