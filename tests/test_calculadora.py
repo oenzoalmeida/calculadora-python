@@ -17,6 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from calculadora import Calculadora  # noqa: E402
+from main import CalculadoraApp  # noqa: E402
 
 CASOS = json.loads((Path(__file__).resolve().parent / 'casos-aritmetica.json').read_text('utf-8'))
 
@@ -123,6 +124,27 @@ class MetodosEstaticosTests(unittest.TestCase):
         # nada na classe depende de estado.
         self.assertEqual(Calculadora.somar(1, 1), 2)
         self.assertEqual(Calculadora().somar(1, 1), 2)
+
+
+class FormatoDaInterfaceTests(unittest.TestCase):
+    def test_rejeita_infinito_positivo_e_negativo(self):
+        for valor in (float('inf'), float('-inf')):
+            with self.subTest(valor=valor):
+                with self.assertRaisesRegex(ValueError, 'intervalo numérico'):
+                    CalculadoraApp.formatar_numero(valor)
+
+    def test_rejeita_resultado_nan(self):
+        with self.assertRaisesRegex(ValueError, 'intervalo numérico'):
+            CalculadoraApp.formatar_numero(float('nan'))
+
+    def test_mantem_resultados_finitos(self):
+        self.assertEqual(CalculadoraApp.formatar_numero(12.5), '12,5')
+        self.assertEqual(CalculadoraApp.formatar_numero(-7.0), '-7')
+
+    def test_overflow_aritmetico_e_convertido_em_erro_controlado(self):
+        resultado = Calculadora.dividir(1e308, 1e-308)
+        with self.assertRaises(ValueError):
+            CalculadoraApp.formatar_numero(resultado)
 
 
 if __name__ == '__main__':
