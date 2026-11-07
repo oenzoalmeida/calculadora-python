@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@500;600;700&family=Share+Tech+Mono&display=swap');
 /* Calculadora web — port da versão acadêmica em Tkinter.
    Identidade visual herda a paleta escura/laranja do original. */
 
@@ -330,3 +331,116 @@ a:focus-visible {
 
   .tecla:active { transform: none; }
 }
+
+/* ==========================================================================
+   REDESIGN "RETRÔ LCD" - direção visual escolhida
+   Calculadora de mesa anos 80: corpo bege de plástico, teclas com relevo,
+   display LCD verde. Apenas CSS: nenhuma lógica alterada.
+   ========================================================================== */
+:root {
+  --fundo: #33302A;
+  --superficie: #E7DFCE;
+  --superficie-2: #DCD3BD;
+  --borda: #B4A98D;
+  --texto: #2A2519;
+  --texto-2: #6E6350;
+  --acento: #C75B23;
+  --acento-forte: #DE6E33;
+  --tecla: #F4EEDD;
+  --tecla-hover: #FFF9EA;
+  --erro: #B33A2B;
+  --raio: 18px;
+}
+
+body {
+  font-family: 'Chivo', system-ui, sans-serif;
+  background:
+    radial-gradient(1100px 700px at 80% -10%, #46423A 0%, var(--fundo) 60%);
+}
+
+.calc {
+  border: 1px solid #8F8670;
+  border-bottom-width: 4px;
+  box-shadow: 0 22px 44px rgba(0,0,0,.45), inset 0 2px 0 #FFF9EA;
+}
+
+.calc-head .badge {
+  background: #2A2519;
+  color: #E7DFCE;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.display {
+  background: linear-gradient(180deg, #B9CD9C, #CBDCAE) !important;
+  border: 3px solid #8F9B72 !important;
+  border-radius: 10px !important;
+  box-shadow: inset 0 3px 10px rgba(35,48,20,.45) !important;
+}
+.display .expressao,
+.display .resultado {
+  color: #2E3B1F !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}
+.display .erro { color: #7A2A1A !important; }
+
+.tecla {
+  background: linear-gradient(180deg, #FFF9EA, var(--tecla)) !important;
+  border: 1px solid #B4A98D !important;
+  border-bottom: 4px solid #A89C7E !important;
+  border-radius: 10px !important;
+  color: #2A2519 !important;
+  font-family: 'Chivo', sans-serif !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,.12);
+}
+.tecla:hover { background: var(--tecla-hover) !important; }
+.tecla:active { transform: translateY(2px); border-bottom-width: 2px !important; }
+
+.tecla.operador {
+  background: linear-gradient(180deg, #3B362C, #2A2519) !important;
+  border-color: #1C1912 !important;
+  color: #F5C518 !important;
+}
+.tecla.operador.igual {
+  background: linear-gradient(180deg, var(--acento-forte), var(--acento)) !important;
+  border-color: #8F3E14 !important;
+  color: #FFF3E4 !important;
+}
+.tecla.funcao, .tecla.memoria {
+  background: linear-gradient(180deg, #DCD3BD, #CFC4A9) !important;
+  color: #4A4130 !important;
+}
+
+.painel {
+  background: var(--superficie);
+  border: 1px solid #8F8670;
+  border-bottom-width: 4px;
+  border-radius: var(--raio);
+  box-shadow: 0 22px 44px rgba(0,0,0,.45), inset 0 2px 0 #FFF9EA;
+  color: var(--texto);
+}
+.painel-head h2 {
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: var(--texto);
+}
+.painel-head .link { color: var(--acento); }
+.historico li, .historico .linha {
+  border-bottom: 1px dashed #B4A98D;
+  color: var(--texto);
+  font-family: 'Share Tech Mono', monospace;
+}
+.historico-vazio { color: var(--texto-2); }
+.painel-foot { color: var(--texto-2); }
+.historico li {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed #B4A98D;
+  border-radius: 0;
+}
+.historico li .res { color: var(--acento); }
