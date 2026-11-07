@@ -277,3 +277,56 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .tecla { transition: none; }
 }
+
+/* ------------------------------------------------------------------
+   Polimento de interface e movimento (referência de design: diretrizes
+   de interface da Apple / HIG e palestras de "fluid interfaces" da WWDC,
+   traduzidas para a web). Só refinamento: identidade visual, layout e
+   funcionalidades não mudam.
+------------------------------------------------------------------- */
+
+/* Alvos de toque de 44px nas teclas (as de memória ficavam em ~43px) */
+.tecla { min-height: 44px; }
+
+/* Botão "limpar histórico": alvo mínimo confortável sem mudar o visual */
+.link { min-height: 32px; }
+
+/* Foco de teclado mais visível (era anel de 2px) */
+.tecla:focus-visible,
+.link:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* Borda das teclas de memória com contraste >= 3:1 (era --borda, ~1.3:1) */
+.tecla.memoria { border-color: #66666e; }
+
+/* Números tabulares no display e no histórico (larguras estáveis) */
+.display,
+.historico {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Entrada curta dos itens do histórico: fade + subida de 4px, interrompível */
+.historico li {
+  animation: calc-entrada 180ms ease-out;
+}
+
+@keyframes calc-entrada {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Movimento reduzido: vira transição instantânea, sem perder a mudança de estado */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .tecla:active { transform: none; }
+}
