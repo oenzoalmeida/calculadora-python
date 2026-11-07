@@ -29,10 +29,14 @@ jobs:
         with:
           node-version: 22
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
       - name: Testes antes de publicar
         run: |
           node --test tests/calculator.test.mjs
-          python3 -m unittest discover -s tests -p 'test_*.py'
+          python -m unittest discover -s tests -p 'test_*.py'
 
       - name: Deploy to Firebase Hosting
         env:
