@@ -444,3 +444,144 @@ body {
   border-radius: 0;
 }
 .historico li .res { color: var(--acento); }
+
+/* ==========================================================================
+   PASSADA VISÍVEL 2 (nov/2026) - tema "Aurora de Vidro"
+   Sala escura com aurora boreal ao fundo, calculadora em vidro fosco,
+   display verde-água luminoso e tecla "=" em gradiente quente.
+   Apenas CSS: nenhuma lógica, id ou estrutura alterada.
+   ========================================================================== */
+:root {
+  --fundo: #07090F;
+  --superficie: rgba(255, 255, 255, 0.06);
+  --superficie-2: rgba(255, 255, 255, 0.09);
+  --borda: rgba(255, 255, 255, 0.14);
+  --texto: #F3F5FA;
+  --texto-2: #9AA3B8;
+  --acento: #7DF9D2;
+  --acento-forte: #A8FFEB;
+  --tecla: rgba(255, 255, 255, 0.07);
+  --tecla-hover: rgba(255, 255, 255, 0.15);
+  --erro: #FF8A8A;
+  --raio: 26px;
+}
+
+body {
+  background:
+    radial-gradient(52rem 34rem at 12% -12%, rgba(56, 189, 248, 0.28), transparent 62%),
+    radial-gradient(46rem 32rem at 108% 112%, rgba(167, 139, 250, 0.30), transparent 60%),
+    radial-gradient(30rem 22rem at 88% 8%, rgba(125, 249, 210, 0.16), transparent 65%),
+    var(--fundo);
+  background-attachment: fixed;
+}
+
+.calc,
+.painel {
+  background: var(--superficie) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  backdrop-filter: blur(22px) saturate(1.5);
+  border: 1px solid var(--borda) !important;
+  border-bottom-width: 1px !important;
+  border-radius: var(--raio) !important;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+  color: var(--texto);
+}
+
+.calc-head h1,
+.painel-head h2 {
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--texto-2) !important;
+}
+
+.calc-head .badge {
+  background: rgba(125, 249, 210, 0.12) !important;
+  border: 1px solid rgba(125, 249, 210, 0.55) !important;
+  color: var(--acento) !important;
+  border-radius: 999px !important;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 0.18em;
+}
+
+.display {
+  background: rgba(3, 10, 12, 0.72) !important;
+  border: 1px solid rgba(125, 249, 210, 0.28) !important;
+  border-radius: 16px !important;
+  box-shadow:
+    inset 0 4px 18px rgba(0, 0, 0, 0.6),
+    0 0 34px rgba(125, 249, 210, 0.10) !important;
+}
+.display .expressao,
+.display .resultado {
+  color: var(--acento) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  text-shadow: 0 0 18px rgba(125, 249, 210, 0.55);
+}
+.display .expressao { color: rgba(125, 249, 210, 0.6) !important; }
+.display .erro { color: var(--erro) !important; }
+
+.tecla {
+  background: var(--tecla) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-bottom-width: 1px !important;
+  border-radius: 14px !important;
+  color: var(--texto) !important;
+  font-family: 'Chivo', sans-serif !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.tecla:hover { background: var(--tecla-hover) !important; }
+.tecla:active { transform: scale(0.94); border-bottom-width: 1px !important; }
+
+.tecla.funcao {
+  background: rgba(255, 255, 255, 0.045) !important;
+  color: var(--texto-2) !important;
+}
+.tecla.funcao:hover { color: var(--texto) !important; }
+
+.tecla.operador {
+  background: linear-gradient(150deg, rgba(56, 189, 248, 0.22), rgba(167, 139, 250, 0.22)) !important;
+  border-color: rgba(167, 139, 250, 0.45) !important;
+  color: #C4B5FD !important;
+}
+.tecla.operador:hover {
+  background: linear-gradient(150deg, rgba(56, 189, 248, 0.34), rgba(167, 139, 250, 0.34)) !important;
+}
+.tecla.operador.ativo {
+  background: linear-gradient(150deg, #38BDF8, #A78BFA) !important;
+  color: #0B0D14 !important;
+}
+.tecla.operador.igual {
+  background: linear-gradient(150deg, #FB923C, #F472B6) !important;
+  border-color: rgba(251, 146, 60, 0.6) !important;
+  color: #1A0E06 !important;
+  box-shadow: 0 8px 26px rgba(244, 114, 182, 0.35);
+}
+.tecla.operador.igual:hover {
+  background: linear-gradient(150deg, #FDBA74, #F9A8D4) !important;
+}
+.tecla.memoria {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: var(--texto-2) !important;
+}
+.tecla.memoria:hover { border-color: var(--acento) !important; color: var(--acento) !important; }
+
+.painel-head .link { color: var(--acento); }
+.historico li {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 10px !important;
+  color: var(--texto);
+  font-family: 'Share Tech Mono', monospace;
+}
+.historico li .res { color: var(--acento); text-shadow: 0 0 12px rgba(125, 249, 210, 0.4); }
+.historico-vazio { color: var(--texto-2); border-style: dashed !important; }
+.painel-foot { border-top-color: var(--borda); color: var(--texto-2); }
+.painel-foot a { color: var(--texto-2); }
+.painel-foot a:hover { color: var(--acento); }
+
+.erro { color: var(--erro); }
