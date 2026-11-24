@@ -8,7 +8,7 @@ Calculadora com interface gráfica desenvolvida em Python utilizando Tkinter. De
 
 ## Contexto
 
-Este foi um dos meus primeiros projetos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, tudo construído com a biblioteca padrão do Python. A versão web foi criada depois, como exercício de port da lógica original para o navegador, sem apagar a versão acadêmica.
+Este foi um dos meus primeiros projetos da faculdade de Ciência da Computação, conservado como parte da evolução do meu portfólio: um utilitário de desktop completo, com tratamento de erros, suporte a teclado e regras de interface, tudo construído com a biblioteca padrão do Python. A versão web foi criada depois, como exercício de adaptação da lógica original ao navegador, sem apagar a versão acadêmica.
 
 ## Evolução: original → web
 
